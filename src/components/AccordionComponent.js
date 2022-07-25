@@ -29,8 +29,8 @@ import ListItemText from '@mui/material/ListItemText';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 // import Aos from "aos";
-// import "aos/dist/aos.css"
-import Fade from 'react-reveal/Fade';
+// // import "aos/dist/aos.css"
+// import Fade from 'react-reveal/Fade';
 
 const useMountEffect = fun => React.useEffect(fun, []);
 

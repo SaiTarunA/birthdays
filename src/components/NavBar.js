@@ -9,7 +9,7 @@ import logo from "../public/logo192.png";
 import { makeStyles } from "@mui/styles";
 import AvatarEdit from "./Avatar/AvatarEdit"
 import ProfileAvatar from "./Avatar/ProfileAvatar";
-import { maxHeight, width } from "@mui/system";
+// import { maxHeight, width } from "@mui/system";
 import CakeRoundedIcon from '@mui/icons-material/CakeRounded';
 import Checkbox from "./Checkbox/Checkbox"
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Icon, Typography } from "@mui/material";
