@@ -1,0 +1,69 @@
+.CheckboxDiv{
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 25px;
+    background-color: var(--text1);
+    border-radius: 50px;
+    overflow: hidden;
+  }
+  #checkbox{
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider{
+    position: absolute;
+    cursor: pointer;
+    margin: auto;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 25px;
+    right: 0;
+    bottom: 0;
+    border: 2px solid var(--text1);
+    /* box-sizing: content-box; */
+    background: var(--surface1);
+    border-radius: 50px;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  .slider:after{
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 3px;
+    bottom: 3px;
+    background-color: var(--text1);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50px;
+  }
+  .CheckboxDiv input:checked + .slider{
+    background: var(--surface1);
+  }
+  .CheckboxDiv input:checked + .slider::after{
+    -webkit-transform: translateX(24px);
+    -ms-transform: translateX(24px);
+    transform: translateX(24px);
+    /* background: black; */
+  }
+  .slider svg {
+    fill: rgb(95, 117, 229);
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    top: 3px;
+    z-index: 0;
+  }
+  .sunIcon{
+      left: 3px;
+  }
+.moonIcon{
+  right: 3px;
+}
+  /* .CheckboxDiv input:checked + .slider svg{
+    fill: black;
+  } */

@@ -1,0 +1,29 @@
+.AvatarEdit{
+    position: fixed;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: var(--surface1);
+}
+.AvatarContainer{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(3, calc(100%/3));
+}
+.TabPanel{
+    flex: 1;
+    overflow-y: scroll;
+    background: var(--surface2);
+}
+.Avatarheading{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}

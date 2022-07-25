@@ -1,5 +1,160 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+*, body{
+  font-size: auto;
+  font-family: 'SF-Pro', sans-serif;
+  box-sizing: border-box;
+  /* background: var(--surface1); */
+}
+@use postcss-preset-env {
+  stage: 0;
+  features: {
+    "logical-properties-and-values": false
+  }
+} 
+
+html {
+  /* brand foundation */
+  --brand-hue: 200;
+  --brand-saturation: 100%;
+  --brand-lightness: 50%;
+
+  /* light */
+  --brand-light: hsl(var(--brand-hue) var(--brand-saturation) var(--brand-lightness));
+  --text1-light: hsl(var(--brand-hue) var(--brand-saturation) 10%);
+  --text2-light: hsl(var(--brand-hue) 30% 30%);
+  --surface1-light: hsl(var(--brand-hue) 20% 92%);
+  --surface2-light: hsl(var(--brand-hue) 20% 99%);
+  --surface3-light: hsl(var(--brand-hue) 20% 92%);
+  --surface4-light: hsl(var(--brand-hue) 20% 85%);
+  --surface-shadow-light: var(--brand-hue) 10% 20%;
+  --shadow-strength-light: .02;
+
+  /* dark */
+  --brand-dark: hsl(
+    var(--brand-hue) 
+    calc(var(--brand-saturation) / 2)
+    calc(var(--brand-lightness) / 1.25)
+  );
+  --text1-dark: hsl(var(--brand-hue) 15% 85%);
+  --text2-dark: hsl(var(--brand-hue) 5% 65%);
+  --surface1-dark: hsl(var(--brand-hue) 10% 10%);
+  --surface2-dark: hsl(var(--brand-hue) 10% 15%);
+  --surface3-dark: hsl(var(--brand-hue) 5%  20%);
+  --surface4-dark: hsl(var(--brand-hue) 5% 25%);
+  --surface-shadow-dark: var(--brand-hue) 50% 3%;
+  --shadow-strength-dark: .2;
+
+  /* dim */
+  --brand-dim: hsl(
+    var(--brand-hue) 
+    calc(var(--brand-saturation) / 1.25)
+    calc(var(--brand-lightness) / 1.25)
+  );
+  --text1-dim: hsl(var(--brand-hue) 15% 75%);
+  --text2-dim: hsl(var(--brand-hue) 10% 61%);
+  --surface1-dim: hsl(var(--brand-hue) 10% 20%);
+  --surface2-dim: hsl(var(--brand-hue) 10% 25%);
+  --surface3-dim: hsl(var(--brand-hue) 5%  30%);
+  --surface4-dim: hsl(var(--brand-hue) 5% 35%);
+  --surface-shadow-dim: var(--brand-hue) 30% 13%;
+  --shadow-strength-dim: .2;
+}
+
+:root {
+  color-scheme: light;
+
+  /* set defaults */
+  --brand: var(--brand-light);
+  --text1: var(--text1-light);
+  --text2: var(--text2-light);
+  --surface1: var(--surface1-light);
+  --surface2: var(--surface2-light);
+  --surface3: var(--surface3-light);
+  --surface4: var(--surface4-light);
+  --surface-shadow: var(--surface-shadow-light);
+  --shadow-strength: var(--shadow-strength-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+
+    --brand: var(--brand-dark);
+    --text1: var(--text1-dark);
+    --text2: var(--text2-dark);
+    --surface1: var(--surface1-dark);
+    --surface2: var(--surface2-dark);
+    --surface3: var(--surface3-dark);
+    --surface4: var(--surface4-dark);
+    --surface-shadow: var(--surface-shadow-dark);
+    --shadow-strength: var(--shadow-strength-dark);
+  }
+}
+
+[color-scheme="light"] {
+  color-scheme: light;
+
+  --brand: var(--brand-light);
+  --text1: var(--text1-light);
+  --text2: var(--text2-light);
+  --surface1: var(--surface1-light);
+  --surface2: var(--surface2-light);
+  --surface3: var(--surface3-light);
+  --surface4: var(--surface4-light);
+  --surface-shadow: var(--surface-shadow-light);
+  --shadow-strength: var(--shadow-strength-light);
+}
+
+[color-scheme="dark"] {
+  color-scheme: dark;
+  
+  --brand: var(--brand-dark);
+  --text1: var(--text1-dark);
+  --text2: var(--text2-dark);
+  --surface1: var(--surface1-dark);
+  --surface2: var(--surface2-dark);
+  --surface3: var(--surface3-dark);
+  --surface4: var(--surface4-dark);
+  --surface-shadow: var(--surface-shadow-dark);
+  --shadow-strength: var(--shadow-strength-dark);
+}
+
+[color-scheme="dim"] {
+  color-scheme: dark;
+
+  --brand: var(--brand-dim);
+  --text1: var(--text1-dim);
+  --text2: var(--text2-dim);
+  --surface1: var(--surface1-dim);
+  --surface2: var(--surface2-dim);
+  --surface3: var(--surface3-dim);
+  --surface4: var(--surface4-dim);
+  --surface-shadow: var(--surface-shadow-dim);
+  --shadow-strength: var(--shadow-strength-dim);
+}
+html {
+  block-size: 100%;
+  background-color: var(--surface1);
+  color: var(--text1);
+}
+
+
 .App {
   text-align: center;
+  align-items: center;
+  justify-content: center;
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  flex-wrap: wrap;
+  background-color: var(--surface2);
 }
 
 .App-logo {
@@ -7,12 +162,404 @@
   pointer-events: none;
 }
 
+.analog-clock{
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 4px solid white;
+  position: relative;
+  margin: 30px auto;
+  background-color: rgba(0, 0, 0, 0.74);
+  box-shadow: rgba(0, 0, 0, 0.842) 0px 7px 29px 0px;
+}
+.roman-clock{
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  position: relative;
+}
+.romandial{
+  width: 100%;
+  position: relative;
+  background-color: white;
+  border-radius: 50%;
+}
+.roman-clock .round{
+  height: 2%;
+  width: 2%;
+  top: 49%;
+  left: 49%;
+}
+.minutehand, .hourhand{
+  height: 42.5%;
+  position: absolute;
+  transform-origin: 50% 93%;
+  top: 10.6%;
+  left: 47%;
+}
+.hourhand{
+  transform-origin: 50% 92.5%;
+  left: 44.6%;
+  top: 10.75%;
+}
+.dial{
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  transform-origin: bottom;
+}
+.seconds{
+  width: 1%;
+  background-color: rgb(255, 60, 0);
+  height: 36%;
+  top: 14%;
+  left: 49.5%;
+}
+.minutes{
+  width: 1.5%;
+  background-color: white;
+  height: 35%;
+  top: 15%;
+  left: 49.25%;
+}
+.hours{
+  width: 1.5%;
+  background-color: white;
+  height: 25%;
+  top: 25%;
+  left: 49.25%;
+}
+.round{
+  border-radius: 50%;
+  height: 5%;
+  width: 5%;
+  top: 47.5%;
+  left: 47.5%;
+  background-color: white;
+  transform: rotate(0deg);
+  box-shadow: rgba(24, 24, 24, 0.904) 0px 2px 8px 0px;
+}
+.label{
+  height: 20px;
+  width: 20px;
+  font-size: 80%;
+  line-height: 20px;
+}
+.top{
+  top: 2%;
+  left: 45%;
+}
+.GetStarted{
+  position: fixed;
+    display: flex;
+    justify-content: flex-start;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    background-color: var(--surface1);
+}
+.bottom{
+  bottom: 2%;
+  left: 45%;
+}
+.left{
+  top: 45%;
+  left: 2%;
+}
+.right{
+  top: 45%;
+  right: 2%;
+}
+.NavBar{
+  padding: 10px 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--surface2);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+.inputCard form{
+  max-height: inherit;
+  width: 20rem;
+  height: 30rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.timeComponent, .listComponent, .inputCard, .loginComponent{
+  margin: auto;
+}
+.signout button{
+  padding: 10px;
+  margin: 0 10px;
+  background-color: rgb(255, 51, 0);
+  border: none;
+  height: 41.6px;
+  width: 110px;
+  margin: auto 30px;
+  text-transform: uppercase;
+  color: var(--text1);
+  border-radius: 5px;
+}
+.logo{
+  min-width: 170px;
+  margin: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.logo img{
+  width: 50px;
+  /* border: 1px solid black; */
+  border-radius: 50%;
+}
+.NavList{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.List{
+  display: inline-block;
+  justify-content: center;
+  width: 150px;
+  color: var(--text1);
+  text-decoration: none;
+  margin: 0 10px;
+  padding: 10px;
+  opacity: 0.5;
+  text-transform: uppercase;
+  font-weight: bold;
+  align-items: center;
+  border-radius: 50px;
+}
+
+.divlist{
+  opacity: 1;
+}
+.List:hover{
+  opacity: 1;
+  transition: 0.1s ease;
+}
+.active{
+  opacity: 1;
+  border: none;
+}
+.Container{
+  width: 100%;
+}
+.buttonstwo{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+.button{
+  display: flex;
+  width: 30%;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 0px;
+  cursor: pointer;
+}
+.bottombutton{
+  position: fixed;
+  bottom: 5vw;
+  right: 5vw;
+  font-size: 3.7vh;
+  z-index: 100;
+  color: white;
+  background-color: #009dff;
+  box-sizing: content-box;
+  padding: 1.3vh;
+  border-radius: 50%;
+  transition: 0.5s;
+}
+.pointer{
+  cursor: pointer;
+}
+.signout2{
+  display: none;
+}
+.button i{
+  font-size: inherit;
+}
+.heading{
+  display: none;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+.navicons{
+  display: none;
+}
+.signout{
+  display: flex;
+  align-items: center;
+}
+.menudiv, .MenuTag{
+  display: none;
+}
+@media only screen and (max-width: 910px) {
+  .NavList{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100vw;
+    position: fixed;
+    height: calc(100vh - 64px);
+    background-color: var(--surface2);
+    top: 64px;
+    left: -100%; 
+    opacity: 0;
+    transition: 0.4s ease-in-out;
+    padding-top: 64px;
+  }
+  .NavBar{
+    box-sizing: border-box;
+    border-style: solid;
+    border-color: rgba(118, 128, 138, 0.15);
+    border-width: 0px 0px thin;
+    padding: 10px;
+  }
+  .List2{
+    color: inherit;
+    text-decoration: none;
+    opacity: 0.5;
+    text-transform: uppercase;
+    font-weight: bold;
+    align-items: center;
+    border-radius: 50px;
+    gap: 20px;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0 0;
+    width: 100%;
+    padding: 10px 6vw;
+    display: flex;
+    opacity: 1;
+  }
+  .heading{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .heading span{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+  }
+  .activeNavlist{
+    top: 64px;
+    left: 0;
+    opacity: 1;
+  }
+  .List{
+    justify-content: flex-start;
+    gap: 20px;
+    color: var(--text1);
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0 0;
+    width: 100%;
+    padding: 10px 6vw;
+    display: flex;
+    opacity: 1;
+  }
+  .active{
+    background-color: var(--surface1);
+    color: var(--brand);
+    border-radius: 0px;
+  }
+  .NavListChild{
+    width: 90%;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid hsl(var(--brand-hue) 10% 50% / 15%);
+  box-shadow: 0 1rem .5rem -.5rem;
+  box-shadow:
+    0 0 2px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .03)),
+    0 0 10px hsl(var(--surface-shadow) / calc(var(--shadow-strength) + .01)),
+    0 0 50px hsl(var(--surface-shadow) / var(--shadow-strength))
+  ;
+  }
+  .navicons{
+    display: flex;
+    cursor: pointer;
+  }
+  .menudiv{
+    width: 48px;
+    height: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  .navbutton{
+    display: none;
+  }
+  .MenuTag{
+    display: inline;
+  }
+  .logo{
+    /* min-width: auto;
+    width: 48px; */
+    display: none;
+  }
+  .logo img{
+    width: 30px;
+  }
 
+
+
+
+  /* Styling the menu button */
+  .menu-btn {
+    z-index: 3;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+  }
+
+  /* Styling the hamburger lines */
+  .menu-btn .btn-line {
+    width: 24px;
+    height: 3px;
+    border-radius: 10px;
+    margin: 0 0 5px 0;
+    background: var(--text1);
+    transition: all 0.5s ease-out;
+  }
+  .menu-btn .btn-line:last-child {
+    margin: 0 0 0 0;
+}
+
+  /* Adding transform to the X */
+  .menu-btn.close {
+      transform: rotate(180deg);
+  }
+
+  /* Styling the three lines
+      to make it an X */
+  .menu-btn.close .btn-line:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+  }
+
+  .menu-btn.close .btn-line:nth-child(2) {
+      opacity: 0;
+  }
+
+  .menu-btn.close .btn-line:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+  }
+
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
