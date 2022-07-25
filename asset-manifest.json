@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/birthdays/static/css/main.1b568b09.css",
+    "main.js": "/birthdays/static/js/main.82f5a944.js",
+    "static/media/2.gif": "/birthdays/static/media/2.aadfe65559d6a7b75578.gif",
+    "static/media/1.gif": "/birthdays/static/media/1.1d5a2f7c68a4db9023f0.gif",
+    "static/media/SF-Pro-Display-Thin.ttf": "/birthdays/static/media/SF-Pro-Display-Thin.ee842ab1b07d190689c4.ttf",
+    "static/media/sf-pro-text-light.ttf": "/birthdays/static/media/sf-pro-text-light.3a2bf6d085b2b5c33a85.ttf",
+    "static/media/sf-pro-text-semibold.ttf": "/birthdays/static/media/sf-pro-text-semibold.45bcf86888ffdcc79f80.ttf",
+    "static/media/sf-pro-text-regular.ttf": "/birthdays/static/media/sf-pro-text-regular.6c476e49e88b29f603fb.ttf",
+    "static/media/hour.png": "/birthdays/static/media/hour.c9cd9472c95681519e7a.png",
+    "static/media/dial.png": "/birthdays/static/media/dial.c6917f01a1346749c7fc.png",
+    "static/media/minutes.png": "/birthdays/static/media/minutes.b8f6a1e78d9e2b8ce20c.png",
+    "static/media/logo192.png": "/birthdays/static/media/logo192.a08c8e0a7bf0a9994c0b.png",
+    "index.html": "/birthdays/index.html",
+    "static/media/sun.svg": "/birthdays/static/media/sun.f143cff087a21042b0eaaf8bf500b36a.svg",
+    "static/media/moon.svg": "/birthdays/static/media/moon.1fa0ea2211b7e327fc53ad6f006eb8b8.svg",
+    "main.1b568b09.css.map": "/birthdays/static/css/main.1b568b09.css.map",
+    "main.82f5a944.js.map": "/birthdays/static/js/main.82f5a944.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1b568b09.css",
+    "static/js/main.82f5a944.js"
+  ]
+}
