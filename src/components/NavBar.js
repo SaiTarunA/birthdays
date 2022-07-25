@@ -14,7 +14,7 @@ import CakeRoundedIcon from '@mui/icons-material/CakeRounded';
 import Checkbox from "./Checkbox/Checkbox"
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Icon, Typography } from "@mui/material";
 import { onValue, ref } from "firebase/database";
-import { Carousel } from "react-responsive-carousel";
+// import { Carousel } from "react-responsive-carousel";
 import GetStarted from "./GetStarted";
 import ProfileEdit from "./ProfileEdit";
 
