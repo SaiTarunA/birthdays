@@ -1,20 +1,13 @@
 import React from "react";
-import Time from "./Time";
-import "../App.css";
-import BirthdayList from "./BirthdayList";
 import CakeRoundedIcon from '@mui/icons-material/CakeRounded';
-import NavBar from "./NavBar";
-import { auth, db } from "../firebase";
-import { onAuthStateChanged } from "firebase/auth";
-import { NavLink, useNavigate } from "react-router-dom";
-import { set, ref, onValue } from "firebase/database";
-import { uid } from "uid";
-import Snackbar from '@mui/material/Snackbar';
-import Fade from '@mui/material/Fade';
-import Slide from '@mui/material/Slide';
 import { Button, Grid, MenuItem, TextField, Typography } from "@mui/material";
+import Snackbar from '@mui/material/Snackbar';
+import { onValue, ref, set } from "firebase/database";
+import { NavLink, useNavigate } from "react-router-dom";
+import { uid } from "uid";
+import "../App.css";
+import { auth, db } from "../firebase";
 import { useStyles } from "./BirthdayList";
-
 
 
 const BirthdaysInput = () => {
@@ -60,11 +53,17 @@ const BirthdaysInput = () => {
 
   //auth
   React.useEffect(() => {
+    let isCancelled = false;
+    if (!isCancelled) {
     auth.onAuthStateChanged((user) => {
       if (!user) {
         navigate("/");
       }
     });
+  }
+    return () => {
+      isCancelled = true;
+    };
   }, []);
 
   //Submit
@@ -132,17 +131,20 @@ const BirthdaysInput = () => {
   const [UserProfile, setUserProfile] = React.useState(undefined);
   const [isLoading, setisLoading] = React.useState(true);
   React.useEffect(() => {
-    // Here API Call to avatar
+    let isCancelled = false;
+
     const fetchData = () => {
       auth.onAuthStateChanged((user) => {
         if (user) {
           onValue(ref(db, `/${auth.currentUser.uid}/UserProfile`), (snapshot) => {
             const data = snapshot.val();
             // console.log(data)
+            if (!isCancelled) {
             if (data !== null) {
               setUserProfile(data);
             }
             setisLoading(false)
+          }
           });
           
         } else if (!user) {
@@ -150,7 +152,14 @@ const BirthdaysInput = () => {
         }
       });
     }
+
     fetchData()
+
+    return () => {
+      isCancelled = true;
+      setUserProfile(undefined)
+      setisLoading(true)
+    };
   }, [])
 
 

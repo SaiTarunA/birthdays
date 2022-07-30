@@ -233,9 +233,11 @@ const BirthdayList = (props) => {
   }
   const navigate = useNavigate();
   React.useEffect(() => {
+    let isCancelled = false;
     auth.onAuthStateChanged((user) => {
       if (user) {
         onValue(ref(db, `/${auth.currentUser.uid}/BirthdayList`), (snapshot) => {
+          if (!isCancelled) {
           setallBirthdays([]);
           const data = snapshot.val();
           if (data !== null) {
@@ -244,6 +246,7 @@ const BirthdayList = (props) => {
             });
           }
           setLoading(false)
+        }
         });
         // setTimeout(function(){
         //   setcheckNet(true);
@@ -253,13 +256,25 @@ const BirthdayList = (props) => {
         navigate("/");
       }
     });
+    return () => {
+      isCancelled = true;
+      setallBirthdays([]);
+      setLoading(true)
+    };
   }, []);
   React.useEffect(() => {
+    let isCancelled = false;
+    if (!isCancelled) {
     if (allBirthdays.length != 0) {
       setEmpty(false)
     } else {
       setEmpty(true)
     }
+  }
+    return () => {
+      isCancelled = true;
+      setEmpty(false)
+    };
   }, [allBirthdays]);
   const Deletethis = (id) => {
     remove(ref(db, `/${auth.currentUser.uid}/BirthdayList/${TempUid}`));
@@ -360,6 +375,8 @@ const BirthdayList = (props) => {
   }
   const [defaultFalseforHideAll, setdefaultFalseforHideAll] = React.useState();
   React.useEffect(() => {
+    let isCancelled = false;
+    
     const defaultTrueCopyinEffect = [...defaultTrue];
     for (let i = 0; i < defaultTrueCopyinEffect.length; i++) {
       if (aaaaa[i] !== undefined) {
@@ -367,11 +384,17 @@ const BirthdayList = (props) => {
         defaultTrueCopyinEffect[i] = false;
       }
     }
+    if (!isCancelled) {
     if (
       arrayEquals(defaultFalseforHideAll, defaultTrueCopyinEffect) === false
     ) {
       setdefaultFalseforHideAll(defaultTrueCopyinEffect);
     }
+  }
+    return () => {
+      isCancelled = true;
+      setdefaultFalseforHideAll(defaultTrueCopyinEffect);
+    };
   }, [defaultTrue]);
   // console.log(defaultFalseforHideAll);
 

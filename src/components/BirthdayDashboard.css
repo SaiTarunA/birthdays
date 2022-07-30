@@ -1,0 +1,66 @@
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  background: var(--surface2);
+  padding: 20px;
+  padding-top: 0px;
+  border-radius: 25px;
+}
+
+li {
+  /* background-color: var(--surface3); */
+  border-radius: 10px;
+  padding: 0px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+li:last-child {
+  margin-bottom: 0px;
+}
+
+.DashboardHeadings {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    padding: 20px;
+    background-color: var(--surface1);
+font-weight: bold;
+text-transform: uppercase;
+    border-radius: 10px;
+}
+
+.DashboardContent {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+    background-color: var(--surface3);
+    border-radius: 10px;
+    font-family: "Source Sans Pro", "Arial", sans-serif;
+}
+
+.NoContent {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text2);
+}
+
+a {
+    text-decoration: none;
+    color: var(--brand);
+    font-weight: normal;
+    opacity: 0.8;
+}

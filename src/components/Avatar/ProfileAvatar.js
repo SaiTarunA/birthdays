@@ -10,6 +10,7 @@ const ProfileAvatar = (props) => {
   const [isLoading, setisLoading] = React.useState(true);
   const navigate = useNavigate();
   React.useEffect(() => {
+    let isCancelled = false;
     // Here API Call to avatar
     const fetchData = () => {
       auth.onAuthStateChanged((user) => {
@@ -17,10 +18,12 @@ const ProfileAvatar = (props) => {
           onValue(ref(db, `/${auth.currentUser.uid}/avatar`), (snapshot) => {
             const data = snapshot.val();
             // console.log(data)
+            if (!isCancelled) {
             if (data !== null) {
                 setapiCall(data);
             }
             setisLoading(false)
+          }
           });
           
         } else if (!user) {
@@ -28,12 +31,19 @@ const ProfileAvatar = (props) => {
         }
       });
     }
+
     fetchData()
+
+    return () => {
+      isCancelled = true;
+    };
   }, [props.isEditing, props.isUserNew])
   
   const isProfileSet = apiCall ? true : false;
   const [avatarProps, setavatarProps] = React.useState({});
   React.useEffect(() => {
+    let isCancelled = false;
+    if (!isCancelled) {
     if(isProfileSet){
       setavatarProps({...avatarProps,
         avatarStyle: apiCall.avatarStyle,
@@ -65,6 +75,10 @@ const ProfileAvatar = (props) => {
         skinColor: 'Light',
       })
     }
+  }
+    return () => {
+      isCancelled = true;
+    };
   }, [isProfileSet, props.isEditing, props.isUserNew])
   
   /* const apiCallGet = {

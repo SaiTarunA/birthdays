@@ -222,7 +222,7 @@ const AccordionComponent = (props) => {
               disableGutters
               // data-aos-easing="ease-in-sine"
               // data-aos="slide-right"
-              ref={"January" === key ? myRef : null}
+              ref={nameOfMonth === key ? myRef : null}
               style={{scrollMarginTop: "64px"}}
               square
               className={props.classes.root}

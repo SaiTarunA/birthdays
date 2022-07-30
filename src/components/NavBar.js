@@ -1,19 +1,17 @@
 import React from "react";
 import { onAuthStateChanged } from "firebase/auth";
-import "../App.css";
-import { NavLink } from "react-router-dom";
-import { signOut } from "firebase/auth";
-import { auth, db } from "../firebase";
-import { useNavigate } from "react-router-dom";
-import logo from "../public/logo192.png";
 import { makeStyles } from "@mui/styles";
-import AvatarEdit from "./Avatar/AvatarEdit"
+import { signOut } from "firebase/auth";
+import { NavLink, useNavigate } from "react-router-dom";
+import "../App.css";
+import { auth, db } from "../firebase";
+import logo from "../public/logo192.png";
+import AvatarEdit from "./Avatar/AvatarEdit";
 import ProfileAvatar from "./Avatar/ProfileAvatar";
 // import { maxHeight, width } from "@mui/system";
-import CakeRoundedIcon from '@mui/icons-material/CakeRounded';
-import Checkbox from "./Checkbox/Checkbox"
-import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Icon, Typography } from "@mui/material";
+import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, Icon } from "@mui/material";
 import { onValue, ref } from "firebase/database";
+import Checkbox from "./Checkbox/Checkbox";
 // import { Carousel } from "react-responsive-carousel";
 import GetStarted from "./GetStarted";
 import ProfileEdit from "./ProfileEdit";
@@ -120,9 +118,12 @@ const NavBar = (props) => {
   const [sidebar,setsidebar] = React.useState(false);
 
   React.useEffect(() => {
+    let isCancelled = false;
+    if (!isCancelled) {
     props.setFullPage(sidebar)
-  
+    }
     return () => {
+      isCancelled = true;
       props.setFullPage(sidebar)
     }
   }, [sidebar])
@@ -144,7 +145,7 @@ const NavBar = (props) => {
   const [isLoading, setisLoading] = React.useState(true);
   const [email, setEmail] = React.useState("");
   React.useEffect(() => {
-    // Here API Call to avatar
+    let isCancelled = false;
     const fetchData = () => {
       auth.onAuthStateChanged((user) => {
         if (user) {
@@ -152,10 +153,12 @@ const NavBar = (props) => {
           onValue(ref(db, `/${auth.currentUser.uid}/UserProfile`), (snapshot) => {
             const data = snapshot.val();
             // console.log(data)
+            if (!isCancelled) {
             if (data !== null) {
                 setapiCall(data);
             }
             setisLoading(false)
+            }
           });
           
         } else if (!user) {
@@ -163,17 +166,32 @@ const NavBar = (props) => {
         }
       });
     }
+
     fetchData()
+
+    return () => {
+      isCancelled = true;
+      setEmail("");
+      setapiCall(undefined)
+      setisLoading(true)
+    }
   }, [])
 
   const isProfileSet = apiCall ? true : false;
   const [isUserNew, setisUserNew] = React.useState(false);
   const [newAvatarEdit, setNewAvatarEdit] = React.useState(false);
   React.useEffect(() => {
+    let isCancelled = false;
+    if (!isCancelled) {
     if(isProfileSet){
       setisUserNew(false)
     }else{
       setisUserNew(true)
+    }
+  }
+    return () => {
+      isCancelled = true;
+      setisUserNew(false)
     }
   }, [isProfileSet])
 
@@ -196,7 +214,7 @@ const NavBar = (props) => {
               <div className={"btn-line"}></div>
           </div>
         </div>
-      {sidebar ? <></> : <span>{pathname.indexOf("/Time") !== -1 ? "TIME" : pathname.indexOf("/Input") !== -1 ? "ADD A BIRTHDAY" : pathname.indexOf("/BirthdayList") !== -1 ? "BIRTHDAYS" : ""}</span>}
+      {sidebar ? <></> : <span>{pathname.indexOf("/Time") !== -1 ? "TIME" : pathname.indexOf("/Input") !== -1 ? "ADD A BIRTHDAY" : pathname.indexOf("/BirthdayList") !== -1 ? "BIRTHDAYS" : pathname.indexOf("/Home") !== -1 ? "HOME" : ""}</span>}
       {loggedin && <div onClick={handleAvatarClick} style={{width: "46px", height: "46px", border: "2px solid rgba(140,140,140,0.15)", boxSizing: "border-box", borderRadius: "50%", overflow:"hidden"}}><div style={{marginTop: "2px"}}><ProfileAvatar width="40px" isEditing={isEditing} isUserNew={isUserNew}/></div></div>}
       {isProfileEditing && <ProfileEdit setDialog={setDialog} isEditing={isEditing} setisEditing={setisEditing} isUserNew={isUserNew} setisProfileEditing={setisProfileEditing} email={email} setFullPage={props.setFullPage}/>}
       {isEditing? <AvatarEdit isEditing={isEditing} setisEditing={setisEditing} setFullPage={props.setFullPage}/> : <></>}
@@ -206,6 +224,15 @@ const NavBar = (props) => {
       <div className={sidebar ? "NavList activeNavlist" : "NavList"}>
         <p className="MenuTag">MENU</p>
         <div className="NavListChild">
+        <NavLink
+          className="List"
+          to="/Home"
+        >
+          <div className="List2 divlist" onClick={sidebar ? handleNav : null}>
+            <Icon className={classes.icon}>home</Icon>
+          <span className="navtext">Home</span>
+          </div>
+        </NavLink>
         <NavLink className="List" to="/Time">
           <div className="List2 divlist" onClick={sidebar ? handleNav : null}>
           <i className="navicons material-icons">access_time</i>

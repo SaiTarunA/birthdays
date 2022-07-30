@@ -39,13 +39,20 @@ const Login = () => {
   const navigate = useNavigate();
   const classes = useStyles()
   React.useEffect(() => {
+    let isCancelled = false;
     auth.onAuthStateChanged ((user) => {
       if(user){
-          navigate('/Input')
+          navigate('/Home')
       }else{
+        if (!isCancelled) {
         setisLoading(false)
+        }
       }
     })
+    return () => {
+      isCancelled = true;
+      setisLoading(true)
+    };
   }, [])
   
   const handleSignIn = () => {
@@ -63,7 +70,7 @@ const Login = () => {
       return;
     }
       signInWithEmailAndPassword(auth, email, password).then(() => {
-          navigate('/Input')
+          navigate('/Home')
       }).catch((e)=>alert(e.message));
   }
 
@@ -102,7 +109,7 @@ const Login = () => {
       return;
     }
     createUserWithEmailAndPassword(auth, regInfo.email, regInfo.password).then(()=>{
-        navigate('/Input')
+        navigate('/Home')
         window.location.reload()
     }).catch((e)=>alert(e.message));
 }
@@ -125,9 +132,9 @@ const Login = () => {
                               label="Email"
                               required
                               inputProps={{
-                                autocomplete: 'new-password',
+                                autoComplete: 'new-password',
                                 form: {
-                                  autocomplete: 'off',
+                                  autoComplete: 'off',
                                 },
                               }}
                               fullWidth
@@ -142,9 +149,9 @@ const Login = () => {
                           required
                               label="Confirm Email"
                               inputProps={{
-                                autocomplete: 'new-password',
+                                autoComplete: 'new-password',
                                 form: {
-                                  autocomplete: 'off',
+                                  autoComplete: 'off',
                                 },
                               }}
                               fullWidth
@@ -160,9 +167,9 @@ const Login = () => {
                               label="Password"
                               type="password"
                               inputProps={{
-                                autocomplete: 'new-password',
+                                autoComplete: 'new-password',
                                 form: {
-                                  autocomplete: 'off',
+                                  autoComplete: 'off',
                                 },
                               }}
                               fullWidth
@@ -178,9 +185,9 @@ const Login = () => {
                               label="Confirm Password"
                               type="password"
                               inputProps={{
-                                autocomplete: 'new-password',
+                                autoComplete: 'new-password',
                                 form: {
-                                  autocomplete: 'off',
+                                  autoComplete: 'off',
                                 },
                               }}
                               fullWidth

@@ -17,6 +17,7 @@
     "avataaars": "^2.0.0",
     "clsx": "^1.1.1",
     "firebase": "^9.6.9",
+    "framer-motion": "^6.5.1",
     "gh-pages": "^4.0.0",
     "moment": "^2.29.1",
     "moment-timezone": "^0.5.34",

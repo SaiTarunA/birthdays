@@ -12,6 +12,7 @@ import UseNetworkStatus from './components/UseNetworkStatus';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
+import BirthdayDashboard from './components/BirthdayDashboard';
 
 const style = {
   position: 'absolute',
@@ -77,6 +78,7 @@ function App() {
         <Route exact path="/" element={<Login />} />
         <Route exact path="/Time" element={<Time fullPage={fullPage}/>} />
         <Route exact path="/Input" element={<BirthdaysInput fullPage={fullPage}/>} />
+        <Route exact path="/Home" element={<BirthdayDashboard fullPage={fullPage}/>} />
         <Route exact path="/BirthdayList" element={<BirthdayList fullPage={fullPage}/>} />
       </Routes>
       </ThemeProvider>
