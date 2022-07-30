@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/birthdays/static/css/main.1b568b09.css",
-    "main.js": "/birthdays/static/js/main.1fb4a32a.js",
+    "main.css": "/birthdays/static/css/main.2db5a388.css",
+    "main.js": "/birthdays/static/js/main.af1521d3.js",
     "static/media/2.gif": "/birthdays/static/media/2.aadfe65559d6a7b75578.gif",
     "static/media/1.gif": "/birthdays/static/media/1.1d5a2f7c68a4db9023f0.gif",
     "static/media/SF-Pro-Display-Thin.ttf": "/birthdays/static/media/SF-Pro-Display-Thin.ee842ab1b07d190689c4.ttf",
@@ -15,11 +15,11 @@
     "index.html": "/birthdays/index.html",
     "static/media/sun.svg": "/birthdays/static/media/sun.fe6b8e800480a8b25bc9675e8b589575.svg",
     "static/media/moon.svg": "/birthdays/static/media/moon.e2dcf85b84fdc40ffd4ab403cb66cde3.svg",
-    "main.1b568b09.css.map": "/birthdays/static/css/main.1b568b09.css.map",
-    "main.1fb4a32a.js.map": "/birthdays/static/js/main.1fb4a32a.js.map"
+    "main.2db5a388.css.map": "/birthdays/static/css/main.2db5a388.css.map",
+    "main.af1521d3.js.map": "/birthdays/static/js/main.af1521d3.js.map"
   },
   "entrypoints": [
-    "static/css/main.1b568b09.css",
-    "static/js/main.1fb4a32a.js"
+    "static/css/main.2db5a388.css",
+    "static/js/main.af1521d3.js"
   ]
 }
