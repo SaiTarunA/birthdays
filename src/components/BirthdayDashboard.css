@@ -63,7 +63,7 @@ text-transform: uppercase;
     color: var(--text2);
 }
 
-a {
+.ListViewAll {
     text-decoration: none;
     color: var(--brand);
     font-weight: normal;

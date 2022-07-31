@@ -124,7 +124,7 @@ const BirthdayDashboard = () => {
           <motion.li layout onClick={toggleOpen} initial={{ borderRadius: 10 }}>
             <motion.div className='DashboardHeadings'>
             <motion.span>{props.name}</motion.span>
-            <NavLink to={"/BirthdayList"}>
+            <NavLink to={"/BirthdayList"} className="ListViewAll">
                 <motion.span>View All</motion.span>
             </NavLink>
             </motion.div>
