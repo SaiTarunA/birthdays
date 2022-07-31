@@ -10,17 +10,16 @@ ul {
   display: flex;
   flex-direction: column;
   background: var(--surface2);
-  padding: 20px;
   padding-top: 0px;
   border-radius: 25px;
+  margin-bottom: 90px;
 }
 
 li {
-  background-color: var(--surface3);
   border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px var(--surface1);
   padding: 0px;
-  margin-bottom: 20px;
+  padding: 10px 20px;
+  margin-bottom: 10px;
   overflow: hidden;
   cursor: pointer;
 }
@@ -39,15 +38,20 @@ li:last-child {
 font-weight: bold;
 text-transform: uppercase;
     border-radius: 10px;
+    border: 2px solid var(--surface2);
+    box-shadow: 0px 0px 10px 0px var(--surface1);
 }
 
 .DashboardContent {
+  margin-top: 5px;
     display: flex;
     flex-direction: column;
     padding: 20px;
     gap: 20px;
     background-color: var(--surface3);
+    border: 2px solid var(--surface2);
     border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px var(--surface1);
     font-family: "Source Sans Pro", "Arial", sans-serif;
 }
 

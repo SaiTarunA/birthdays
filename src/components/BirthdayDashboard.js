@@ -4,6 +4,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { auth, db } from '../firebase'
 import { AnimatePresence, motion, LayoutGroup } from "framer-motion"
 import "./BirthdayDashboard.css";
+import BottomNav from './BottomNav/BottomNav'
 
 const BirthdayDashboard = () => {
 
@@ -159,6 +160,7 @@ const BirthdayDashboard = () => {
             {loading ?
             <span>Loading...</span>:
             <div>
+                <BottomNav />
                 <h3>BIRTHDAYS</h3>
                 <LayoutGroup>
                 <motion.ul layout initial={{ borderRadius: 25 }}>
