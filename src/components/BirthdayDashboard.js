@@ -109,7 +109,7 @@ const BirthdayDashboard = () => {
 
       const items = {
         "Today": [birthdaysToday, "Today"],
-        "Missed Yesterday": [birthdaysYesterday, "Yesterday"],
+        "Yesterday": [birthdaysYesterday, "Yesterday"],
         "Next 1 Week": [birthdaysNextWeek, "Next 1 Week"],
         "Next 1 Month": [birthdaysNextMonth, "Next 1 Month"]
       }
@@ -120,10 +120,12 @@ const BirthdayDashboard = () => {
 
         const toggleOpen = () => setIsOpen(!isOpen);
 
+        const dateToday = " (" + new Date().getDate() + " " + new Date().toLocaleString('en-US', {month: 'short'}) + " " + new Date().getFullYear() + ")"
+
         return (
           <motion.li layout onClick={toggleOpen} initial={{ borderRadius: 10 }}>
             <motion.div className='DashboardHeadings'>
-            <motion.span>{props.name}</motion.span>
+            <motion.span>{props.name}{props.name == "Today" ? dateToday : ""}</motion.span>
             <NavLink to={"/BirthdayList"} className="ListViewAll">
                 <motion.span>View All</motion.span>
             </NavLink>
@@ -156,10 +158,10 @@ const BirthdayDashboard = () => {
       }
 
     return (
-        <div>
+        <div style={{width: "100%"}}>
             {loading ?
             <span>Loading...</span>:
-            <div>
+            <div style={{width: "100%"}}>
                 <BottomNav />
                 <h3>BIRTHDAYS</h3>
                 <LayoutGroup>

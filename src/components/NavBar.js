@@ -214,7 +214,7 @@ const NavBar = (props) => {
               <div className={"btn-line"}></div>
           </div>
         </div>
-      {sidebar ? <></> : <span>{pathname.indexOf("/Time") !== -1 ? "TIME" : pathname.indexOf("/Input") !== -1 ? "ADD A BIRTHDAY" : pathname.indexOf("/BirthdayList") !== -1 ? "BIRTHDAYS" : pathname.indexOf("/Home") !== -1 ? "HOME" : ""}</span>}
+      {sidebar ? <></> : <span>{pathname.indexOf("/Time") !== -1 ? "TIME(Beta)" : pathname.indexOf("/Input") !== -1 ? "ADD A BIRTHDAY" : pathname.indexOf("/BirthdayList") !== -1 ? "BIRTHDAYS" : pathname.indexOf("/Home") !== -1 ? "HOME" : ""}</span>}
       {loggedin && <div onClick={handleAvatarClick} style={{width: "46px", height: "46px", border: "2px solid rgba(140,140,140,0.15)", boxSizing: "border-box", borderRadius: "50%", overflow:"hidden"}}><div style={{marginTop: "2px"}}><ProfileAvatar width="40px" isEditing={isEditing} isUserNew={isUserNew}/></div></div>}
       {isProfileEditing && <ProfileEdit setDialog={setDialog} isEditing={isEditing} setisEditing={setisEditing} isUserNew={isUserNew} setisProfileEditing={setisProfileEditing} email={email} setFullPage={props.setFullPage}/>}
       {isEditing? <AvatarEdit isEditing={isEditing} setisEditing={setisEditing} setFullPage={props.setFullPage}/> : <></>}
@@ -236,7 +236,7 @@ const NavBar = (props) => {
         <NavLink className="List" to="/Time">
           <div className="List2 divlist" onClick={sidebar ? handleNav : null}>
           <i className="navicons material-icons">access_time</i>
-          <span className="navtext">Time</span>
+          <span className="navtext">Time (In development)</span>
           </div>
         </NavLink>
         <NavLink className="List" to="/Input">
