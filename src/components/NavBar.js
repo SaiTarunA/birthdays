@@ -233,12 +233,12 @@ const NavBar = (props) => {
           <span className="navtext">Home</span>
           </div>
         </NavLink>
-        <NavLink className="List" to="/Time">
+        {/* <NavLink className="List" to="/Time">
           <div className="List2 divlist" onClick={sidebar ? handleNav : null}>
           <i className="navicons material-icons">access_time</i>
           <span className="navtext">Time (In development)</span>
           </div>
-        </NavLink>
+        </NavLink> */}
         <NavLink className="List" to="/Input">
           <div className="List2 divlist" onClick={sidebar ? handleNav : null}>
           <i className="navicons material-icons">library_add</i>
