@@ -9,12 +9,19 @@ import "../App.css";
 import { auth, db } from "../firebase";
 import { useStyles } from "./BirthdayList";
 
+import { useAtom } from 'jotai'
+import { atomWithHash } from 'jotai-location'
+
+const inputNameAtom = atomWithHash('inputName', "")
+const inputMonthAtom = atomWithHash('inputMonth', "January")
+const inputDayAtom = atomWithHash('inputDay', "1")
+
 
 const BirthdaysInput = () => {
   const classes = useStyles()
-  const [inputName, setinputName] = React.useState("");
-  const [inputMonth, setinputMonth] = React.useState("January");
-  const [inputDay, setinputDay] = React.useState("1");
+  const [inputName, setinputName] = useAtom(inputNameAtom);
+  const [inputMonth, setinputMonth] = useAtom(inputMonthAtom);
+  const [inputDay, setinputDay] = useAtom(inputDayAtom);
   const months = {
     1: "January",
     2: "February",
